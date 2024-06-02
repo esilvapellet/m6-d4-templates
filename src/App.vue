@@ -6,100 +6,130 @@
       <div class="row">
         <div class="col-12 col-md-6 divForm">
           <form>
-            <div>
-              <label for="colorFondo">Color de fondo: </label>
-              <input
-                type="color"
-                id="colorFondo"
-                value="#0400ff"
-                v-model="colFondo"
-              />
-            </div>
-            <div>
-              <label for="colorTexto">Color de texto: </label>
-              <input
-                type="color"
-                id="colorTexto"
-                value="#ffffff"
-                v-model="colTexto"
-              />
-            </div>
-            <div>
-              <label for="mostrarTexto">¿Mostrar texto?: </label>
-              <input
-                type="checkbox"
-                id="mostrarTexto"
-                value="0"
-                v-model="mosTexto"
-              />
-            </div>
-            <div>
-              <label for="bordeTexto">Redondeado: </label>
-              <input
-                type="range"
-                name="bordeTexto"
-                id="bordeTexto"
-                min="0"
-                max="200"
-                step="1"
-                value="0"
-                v-model="borTexto"
-              />
-            </div>
-            <div>
-              <label for="contenidoTexto">Contenido textual: </label>
-              <textarea
-                name="contenidoTexto"
-                id="contenidoTexto"
-                v-model="conTexto"
-              ></textarea>
-            </div>
-            <div>
-              <label for="tipoLetra">Estilo de letra:</label>
-              <select name="tipoLetra" id="tipoLetra" v-model="estTexto">
-                <option value="normal" selected>Normal</option>
-                <option value="italic">Cursiva</option>
-              </select>
-            </div>
-            <div>
-              <label for="textoOpaco">Opaco: </label>
-              <input
-                type="range"
-                name="textoOpaco"
-                id="textoOpaco"
-                min="0"
-                max="1"
-                step="0.01"
-                v-model="opaTexto"
-              />
-            </div>
-            <div>
-              <p>Tamaño de texto:</p>
-              <input
-                type="radio"
-                name="radio1"
-                id="radio1"
-                value="10px"
-                v-model="tamTexto"
-              />
-              <label for="radio1"> Pequeño </label>
-              <input
-                type="radio"
-                name="radio2"
-                id="radio2"
-                value="20px"
-                v-model="tamTexto"
-              />
-              <label for="radio1"> Mediano </label>
-              <input
-                type="radio"
-                name="radio3"
-                id="radio3"
-                value="30px"
-                v-model="tamTexto"
-              />
-              <label for="radio1"> Grande </label>
-            </div>
+            <ul>
+              <div class="py-2">
+                <li>
+                  <label for="colorFondo">Color de fondo: </label>
+                  <input
+                    type="color"
+                    id="colorFondo"
+                    value="#0400ff"
+                    v-model="colFondo"
+                  />
+                </li>
+              </div>
+              <div class="py-2">
+                <li>
+                  <label for="colorTexto">Color de texto: </label>
+                  <input
+                    type="color"
+                    id="colorTexto"
+                    value="#ffffff"
+                    v-model="colTexto"
+                  />
+                </li>
+              </div>
+              <div class="py-2">
+                <li>
+                  <label for="mostrarTexto">¿Mostrar texto?: </label>
+                  <input
+                    type="checkbox"
+                    id="mostrarTexto"
+                    value="0"
+                    v-model="mosTexto"
+                  />
+                </li>
+              </div>
+              <div class="py-2">
+                <li>
+                  <label for="bordeTexto">Redondeado: </label>
+                  <input
+                    type="range"
+                    name="bordeTexto"
+                    id="bordeTexto"
+                    min="0"
+                    max="200"
+                    step="1"
+                    value="0"
+                    v-model="borTexto"
+                  />
+                </li>
+              </div>
+              <div class="py-2">
+                <li>
+                  <label for="contenidoTexto">Contenido texto: </label>
+                  <textarea
+                    name="contenidoTexto"
+                    id="contenidoTexto"
+                    v-model="conTexto"
+                  ></textarea>
+                </li>
+              </div>
+              <div class="py-2">
+                <li>
+                  <label for="tipoLetra">Estilo de letra:</label>
+                  <select name="tipoLetra" id="tipoLetra" v-model="estTexto">
+                    <option value="normal" selected>Normal</option>
+                    <option value="italic">Cursiva</option>
+                  </select>
+                </li>
+              </div>
+              <div class="py-2">
+                <li>
+                  <label for="textoOpaco">Opacidad: </label>
+                  <input
+                    type="range"
+                    name="textoOpaco"
+                    id="textoOpaco"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    v-model="opaTexto"
+                  />
+                </li>
+              </div>
+              <div class="py-2">
+                <li>
+                  <label for="tipografia">Tipografía:</label>
+                  <select name="tipografia" id="tipografia" v-model="fontTexto">
+                    <option value="" selected disabled>Seleccione...</option>
+                    <option
+                      v-for="tipografia in tipografias"
+                      :key="tipografia.id"
+                      :value="tipografia.font"
+                    >
+                      {{ tipografia.font }}
+                    </option>
+                  </select>
+                </li>
+              </div>
+              <div class="py-2">
+                <li>
+                  <label>Tamaño de texto:</label>
+                  <input
+                    class="mx-2"
+                    type="radio"
+                    value="textoPequeno"
+                    v-model="tamTexto"
+                  />
+                  Pequeño
+                  <input
+                    class="mx-2"
+                    type="radio"
+                    value="textoMediano"
+                    v-model="tamTexto"
+                  />
+                  Mediano
+                  <input
+                    class="mx-2"
+                    type="radio"
+                    value="textoGrande"
+                    v-model="tamTexto"
+                  />
+                  Grande
+                </li>
+              </div>
+            </ul>
           </form>
         </div>
         <div class="col-12 col-md-6 divCaja">
@@ -112,11 +142,15 @@
             }"
           >
             <span
-              class="textoUsuario"
+              :class="{
+                textoPequeno: tamTexto == 'textoPequeno',
+                textoMediano: tamTexto == 'textoMediano',
+                textoGrande: tamTexto == 'textoGrande',
+              }"
               :style="{
                 color: colTexto,
-                fontSize: tamTexto,
                 fontStyle: estTexto,
+                fontFamily: fontTexto,
               }"
               v-show="mosTexto"
             >
@@ -142,7 +176,12 @@ export default {
       conTexto: " ",
       estTexto: "normal",
       opaTexto: 1,
-      tamTexto: "20px",
+      tamTexto: "",
+      tipografias: [
+        { id: 1, name: "Arial", font: "Arial" },
+        { id: 2, name: "Lucida Console", font: "Lucida" },
+      ],
+      fontTexto: "",
     };
   },
   methods: {
@@ -183,6 +222,7 @@ export default {
 #contenidoTexto,
 .cajaTexto {
   text-transform: capitalize;
+  font-family: monospace;
 }
 
 #textoCaja {
@@ -194,5 +234,16 @@ export default {
 #textoUsuario {
   opacity: 0;
   z-index: 1;
+}
+.textoPequeno {
+  font-size: 15px;
+}
+
+.textoMediano {
+  font-size: 25px;
+}
+
+.textoGrande {
+  font-size: 35px;
 }
 </style>
